@@ -1,0 +1,41 @@
+{
+  "name": "devbox",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/nix:1": {
+      "multiUser": true,
+      "version": "latest"
+    }
+  },
+  "runArgs": [
+    "--cap-add=NET_ADMIN",
+    "--cap-add=NET_RAW",
+    "--device=/dev/net/tun"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "files.insertFinalNewline": true,
+        "editor.formatOnSave": true,
+        "editor.suggestSelection": "first",
+        "extensions": [
+          "GitHub.copilot",
+          "EditorConfig.EditorConfig",
+          "ms-azuretools.vscode-docker",
+          "timonwong.shellcheck",
+          "redhat.vscode-yaml",
+          "yzhang.markdown-all-in-one",
+          "DavidAnson.vscode-markdownlint",
+          "ms-vscode.makefile-tools"
+        ]
+      }
+    }
+  },
+  "updateContentCommand": "rm README.md && rm UNLICENSE.md"
+}
